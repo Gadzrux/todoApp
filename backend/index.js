@@ -1,6 +1,7 @@
 import express from "express";
 import { createTodo, updateTodo } from "./zod/validationSchema";
 import { Todo } from "./db/schema";
+import bodyParser from "body-parser";
 
 const app = express();
 
