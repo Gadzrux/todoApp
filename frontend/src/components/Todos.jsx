@@ -9,21 +9,16 @@ function Todos({ todos }) {
             <h2>{todo.title}</h2>
             <p>{todo.description}</p>
             <button
-              onClick={async () => {
-                const response = await fetch(
-                  "http://localhost:4000/completed",
-                  {
-                    method: "PUT",
-                    body: JSON.stringify({
-                      id: todo._id,
-                    }),
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                  }
-                );
-                const json = await response.json();
-                console.log(json);
+              onClick={() => {
+                fetch("http://localhost:4000/completed", {
+                  method: "PUT",
+                  body: JSON.stringify({
+                    id: todo._id,
+                  }),
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                });
               }}
             >
               {todo.completed ? "Completed" : "Mark as completed"}
