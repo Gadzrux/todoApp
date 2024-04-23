@@ -1,11 +1,13 @@
 import express from "express";
 import { createTodo, updateTodo } from "./zod/validationSchema";
 import { Todo } from "./db/schema";
-import bodyParser from "body-parser";
+import cors from "cors";
 
 const app = express();
 
 const port = process.env.PORT || 3000;
+
+app.use(cors());
 app.use(express.json());
 
 app.get("/todos", async (req, res) => {
@@ -44,6 +46,7 @@ app.post("/todo", async (req, res) => {
     res.status(411).json({
       message: "wrong inputs passed in the body",
       created: false,
+      data: bodyObj,
     });
     //put the data in mongodb
   }
