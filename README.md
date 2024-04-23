@@ -3,6 +3,6 @@
 ### (using bun as runtime but it feels wrong to write MERB stack)
 
 - ### create backend endpoints:
-  - create a todo and store it in db
-  - see their existing todo
-  - mark their todo as done (update data in db)
+  - created endpoints to post a todo, get all todos and put endpoint to update a todo
+  - using zod for input validation
+  - mark todo as done (update data in db)
