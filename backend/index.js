@@ -11,7 +11,7 @@ app.get("/todos", async (req, res) => {
   //get all todos in the db
   try {
     const allTodos = await Todo.find({});
-    res.status(200).json({ allTodos });
+    res.status(200).json(allTodos);
   } catch (error) {
     res.status(404).json({
       message: "some Error occured or DB is down",
@@ -56,7 +56,7 @@ app.put("/completed", async (req, res) => {
   if (zodObj.success) {
     res.status(200).json({
       message: "Todo updated successfully",
-      created: true,
+      updated: true,
     });
     // if the zod validation passes we update the todo in the db
     try {
@@ -86,6 +86,6 @@ app.put("/completed", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("App listening on port 3000");
+app.listen(port, () => {
+  console.log(`App listening on ${port}`);
 });
